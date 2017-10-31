@@ -15,20 +15,22 @@ requirements = [
     # TODO: put package requirements here
     'future',
     'postal==1.0',
-    'scikit_learn==0.19.0',
+    'scikit_learn==0.19',
     'pyfasttext'
 
 ]
 
 setup_requirements = [
     # TODO(rdoume): put setup requirements (distutils extensions, etc.) here
-'bumpversion==0.5.3',
-'wheel==0.29.0',
-'watchdog==0.8.3',
-'flake8==2.6.0',
-'tox==2.3.1',
+'bumpversion==0.5',
+'wheel==0.29',
+'watchdog==0.8',
+'flake8==2.6',
+'Cython', 
+'cysignals', 
+'tox==2.3',
 'coverage==4.1',
-'Sphinx==1.4.8'
+'Sphinx==1.4'
 
 
 ]
@@ -58,13 +60,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
 
     ],
