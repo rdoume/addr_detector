@@ -12,7 +12,11 @@ from postal.expand import expand_address
 
 
 class Postal_clf(BaseEstimator, ClassifierMixin):
-    def __init__(self, param=None, expander=expand_address, parser=parse_address):
+    def __init__(
+            self,
+            param=None,
+            expander=expand_address,
+            parser=parse_address):
         self.param = None
         self.parser = parser
         self.expander = expander
@@ -25,7 +29,7 @@ class Postal_clf(BaseEstimator, ClassifierMixin):
         results = []
         if isinstance(X, str):  #
             results.append(self.is_addr(X))
-        elif type(X) == list:
+        elif isinstance(X, list):
             for elt in X:
                 if isinstance(elt, str):
                     results.append(self.is_addr(elt))
@@ -53,7 +57,9 @@ class Postal_clf(BaseEstimator, ClassifierMixin):
         for x, y in parsed_add:
             address[y] = x
         if address['road'] is not None:
-            full_road = True  # len(query_road_set)>1 # We check the length of the troad.  If eq=1, means it's just dummy name (like street)
+            # len(query_road_set)>1 # We check the length of the troad.  If
+            # eq=1, means it's just dummy name (like street)
+            full_road = True
         if num_elt_addr >= 4:
             prediction = 1
 

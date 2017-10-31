@@ -10,9 +10,11 @@ from sklearn.base import BaseEstimator, ClassifierMixin
 from pyfasttext import FastText
 import pkg_resources
 
+
 class Fasttext_clf(BaseEstimator, ClassifierMixin):
-    data_path=pkg_resources.resource_filename('addr_detector','model.ftz')
+    data_path = pkg_resources.resource_filename('addr_detector', 'model.ftz')
     print(data_path)
+
     def __init__(self, path=data_path):
         self.model = FastText(path)
         print(self.model.labels)
@@ -24,15 +26,15 @@ class Fasttext_clf(BaseEstimator, ClassifierMixin):
         results = []
         if isinstance(X, str):  #
             results = results + [self.model.predict_single(X)]
-        elif type(X) == list:
+        elif isinstance(X, list):
             results = results + self.model.predict(X)
         return results
 
-    def predict_proba(self,X):
+    def predict_proba(self, X):
         results = []
         if isinstance(X, str):  #
             results = results + [self.model.predict_proba_single(X)]
-        elif type(X) == list:
+        elif isinstance(X, list):
             results = results + self.model.predict_proba(X)
         return results
 

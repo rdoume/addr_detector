@@ -13,18 +13,18 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     # TODO: put package requirements here
-'click',
-'Sphinx',
-'coverage',
-'awscli',
-'flake8',
-'python-dotenv>=0.5.1',
-'numpy==1.13.3',
-'pandas==0.20.1',
-'scipy==0.19.0',
-'postal==1.0',
-'scikit_learn==0.19.0',
-'pyfasttext'
+    'click',
+    'Sphinx',
+    'coverage',
+    'awscli',
+    'flake8',
+    'python-dotenv>=0.5.1',
+    'numpy==1.13.3',
+    'pandas==0.20.1',
+    'scipy==0.19.0',
+    'postal==1.0',
+    'scikit_learn==0.19.0',
+    'pyfasttext'
 
 ]
 
@@ -47,7 +47,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={'': ['*.ftz']},
-    data_files=[('model',['data/model.ftz'])],
+    data_files=[('model', ['data/model.ftz'])],
     install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,

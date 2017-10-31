@@ -14,30 +14,30 @@ from sklearn.base import BaseEstimator, ClassifierMixin
 
 
 class addr_voting(BaseEstimator, ClassifierMixin):
-    postal_clf=Postal_clf()
-    ft_clf=Fasttext_clf() #Temporary, replace with sk_ft() when issue is fixed.
+    postal_clf = Postal_clf()
+    # Temporary, replace with sk_ft() when issue is fixed.
+    ft_clf = Fasttext_clf()
 
-    def __init__(self, classifiers=[('postal',postal_clf),('ft',ft_clf)]):
-        self.model =VotingClassifier(estimators=classifiers)
-
+    def __init__(self, classifiers=[('postal', postal_clf), ('ft', ft_clf)]):
+        self.model = VotingClassifier(estimators=classifiers)
 
     def fit(self, X, y):
-        self.model.fit(X,y)
+        self.model.fit(X, y)
         return self
 
     def predict(self, X):
         results = []
         if isinstance(X, str):  #
             results = results + [self.model.predict(X)]
-        elif type(X) == list:
+        elif isinstance(X, list):
             results = results + self.model.predict(X)
         return results
 
-    def predict_proba(self,X):
+    def predict_proba(self, X):
         results = []
         if isinstance(X, str):  #
             results = results + [self.model.predict(X)]
-        elif type(X) == list:
+        elif isinstance(X, list):
             results = results + self.model.predict(X)
         return results
 
