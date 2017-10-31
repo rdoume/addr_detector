@@ -13,14 +13,7 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     # TODO: put package requirements here
-    'click',
-    'Sphinx',
-    'coverage',
-    'Cython',
-    'cysignals',
     'future',
-    'flake8',
-    'python-dotenv>=0.5.1',
     'postal==1.0',
     'scikit_learn==0.19.0',
     'pyfasttext'
@@ -29,6 +22,15 @@ requirements = [
 
 setup_requirements = [
     # TODO(rdoume): put setup requirements (distutils extensions, etc.) here
+'bumpversion==0.5.3',
+'wheel==0.29.0',
+'watchdog==0.8.3',
+'flake8==2.6.0',
+'tox==2.3.1',
+'coverage==4.1',
+'Sphinx==1.4.8'
+
+
 ]
 
 test_requirements = [
