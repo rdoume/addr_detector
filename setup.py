@@ -13,7 +13,6 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     # TODO: put package requirements here
-    'future',
     'postal==1.0',
     'scikit_learn==0.19',
     'pyfasttext'
@@ -27,12 +26,9 @@ setup_requirements = [
 'watchdog==0.8',
 'flake8==2.6',
 'Cython', 
-'cysignals', 
 'tox==2.3',
 'coverage==4.1',
 'Sphinx==1.4'
-
-
 ]
 
 test_requirements = [
