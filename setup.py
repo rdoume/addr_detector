@@ -15,6 +15,7 @@ requirements = [
     # TODO: put package requirements here
     'postal==1.0',
     'scikit_learn==0.19',
+    'Cython',
     'pyfasttext'
 
 ]
