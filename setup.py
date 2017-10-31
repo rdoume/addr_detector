@@ -19,12 +19,8 @@ requirements = [
     'Cython',
     'cysignals',
     'future',
-    'awscli',
     'flake8',
     'python-dotenv>=0.5.1',
-    'numpy==1.13.3',
-    'pandas==0.20.1',
-    'scipy==0.19.0',
     'postal==1.0',
     'scikit_learn==0.19.0',
     'pyfasttext'
