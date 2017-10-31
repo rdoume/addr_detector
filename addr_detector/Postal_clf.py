@@ -34,13 +34,12 @@ class Postal_clf(BaseEstimator, ClassifierMixin):
                 if isinstance(elt, str):
                     results.append(self.is_addr(elt))
 
-        return results
+        return [results]
 
     def is_addr(self, X):
 
         prediction = 0
         full_road = False
-        print(X)
         exp_add = self.expander(X)
         parsed_add = self.parser(exp_add[0])
         num_elt_addr = len(parsed_add)

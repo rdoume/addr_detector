@@ -28,7 +28,7 @@ class Fasttext_clf(BaseEstimator, ClassifierMixin):
             results = results + [self.model.predict_single(X)]
         elif isinstance(X, list):
             results = results + self.model.predict(X)
-        return results
+        return [results]
 
     def predict_proba(self, X):
         results = []
