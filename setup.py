@@ -13,9 +13,10 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     # TODO: put package requirements here
+    'Cython',
+    'numpy',
     'postal==1.0',
     'scikit_learn==0.19',
-    'Cython',
     'pyfasttext'
 
 ]
