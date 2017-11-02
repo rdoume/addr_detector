@@ -37,7 +37,7 @@ Then to install the C library:
     ./configure --datadir=[...some dir with a few GB of space...]
     make
     sudo make install
-    
+
     # On Linux it's probably a good idea to run
     sudo ldconfig
 
@@ -49,6 +49,50 @@ In order to build `fastText`, use the following:
     $ cd fastText
     $ make
 
+#### Installation of Package
+The previous step must have been installed before.
+
+Package is on the Pipy :
+pip install addr_detector
+
+Or directly after forking this one
+
 ## Examples:
 
 
+
+
+```python
+from addr_detector.Fasttext_clf import Fasttext_clf
+from addr_detector.Postal_clf import Postal_clf
+```
+
+
+```python
+clf1 = Fasttext_clf()
+clf2 = Postal_clf()
+
+```
+
+
+```python
+addresse =  ['7 rue Spontini Paris']
+print(clf1.predict(addresse))
+print(clf2.predict(addresse))
+
+```
+
+    [['1']]
+    [['1']]
+
+
+
+```python
+addresses= ['7 rue Spontini Paris', '27 rue de l université Paris','Comment se faire cuire un oeuf','Google\n']
+
+print(clf1.predict(addresses))
+print(clf2.predict(addresses))
+```
+
+    [['1'], ['1'], ['0'], ['0']]
+    [['1'], ['1'], ['0'], ['0']]

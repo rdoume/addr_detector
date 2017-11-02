@@ -27,7 +27,7 @@ setup_requirements = [
 'wheel==0.29',
 'watchdog==0.8',
 'flake8==2.6',
-'Cython', 
+'Cython',
 'tox==2.3',
 'coverage==4.1',
 'Sphinx==1.4'
@@ -48,7 +48,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={'': ['*.ftz']},
-    data_files=[('model', ['data/model.ftz'])],
+    data_files=[('model', ['addr_detector/model/ft_ad.ftz'])],
     install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,

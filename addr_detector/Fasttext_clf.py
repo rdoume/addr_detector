@@ -12,12 +12,10 @@ import pkg_resources
 
 
 class Fasttext_clf(BaseEstimator, ClassifierMixin):
-    data_path = pkg_resources.resource_filename('addr_detector', 'model.ftz')
-    print(data_path)
-
+    data_path = pkg_resources.resource_filename('addr_detector.model', 'ft_ad.ftz')
     def __init__(self, path=data_path):
         self.model = FastText(path)
-        print(self.model.labels)
+        self.default = '0'
 
     def fit(self, X, y):
         return self
@@ -25,16 +23,20 @@ class Fasttext_clf(BaseEstimator, ClassifierMixin):
     def predict(self, X):
         results = []
         if isinstance(X, str):  #
-            results = results + [self.model.predict_single(X)]
+            res=self.model.predict_single(X)
+            results = results + [self.default if not res  else res]
         elif isinstance(X, list):
+           # X=[(x) for x in X]
+            res = self.model.predict(X)
             results = results + self.model.predict(X)
-        return [results]
+        return results
 
     def predict_proba(self, X):
         results = []
         if isinstance(X, str):  #
             results = results + [self.model.predict_proba_single(X)]
         elif isinstance(X, list):
+            #X=[(x+'\n') for x in X]
             results = results + self.model.predict_proba(X)
         return results
 

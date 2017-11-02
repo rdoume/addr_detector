@@ -3,9 +3,9 @@ include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include README.rst
-include data/model.ftz
+include addr_detector/model/ft_ad.ftz
 recursive-include tests *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
-recursive-include data *ftz
+recursive-include addr_detector *ftz
 recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif

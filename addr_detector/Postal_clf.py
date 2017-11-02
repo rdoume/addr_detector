@@ -34,11 +34,11 @@ class Postal_clf(BaseEstimator, ClassifierMixin):
                 if isinstance(elt, str):
                     results.append(self.is_addr(elt))
 
-        return [results]
+        return results
 
     def is_addr(self, X):
 
-        prediction = 0
+        prediction = '0'
         full_road = False
         exp_add = self.expander(X)
         parsed_add = self.parser(exp_add[0])
@@ -60,20 +60,20 @@ class Postal_clf(BaseEstimator, ClassifierMixin):
             # eq=1, means it's just dummy name (like street)
             full_road = True
         if num_elt_addr >= 4:
-            prediction = 1
+            prediction = '1'
 
         elif (address['house_number'] is not None and address['city'] is not None and full_road):
-            prediction = 1
+            prediction = '1'
         elif (address['house_number'] is not None and address['postcode'] is not None and full_road):
-            prediction = 1
+            prediction = '1'
         elif (address['house_number'] is not None and full_road):
-            prediction = 0
+            prediction = '0'
         elif ((address['postcode'] or address['city']) is not None and full_road):
-            prediction = 1
+            prediction = '1'
         else:
-            prediction = 0
+            prediction = '0'
 
-        return prediction
+        return [prediction]
 
     def score(self, X, y=None):
         return sum(self.predict(X))
