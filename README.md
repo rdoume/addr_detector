@@ -82,8 +82,8 @@ print(clf2.predict(addresse))
 
 ```
 
-    [['1']]
-    [['1']]
+    [True]
+    [True]
 
 
 
@@ -94,5 +94,5 @@ print(clf1.predict(addresses))
 print(clf2.predict(addresses))
 ```
 
-    [['1'], ['1'], ['0'], ['0']]
-    [['1'], ['1'], ['0'], ['0']]
+    [True, True, False, False]
+    [True, True, False, False]
