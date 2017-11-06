@@ -30,11 +30,13 @@ setup_requirements = [
 'Cython',
 'tox==2.3',
 'coverage==4.1',
-'Sphinx==1.4'
+'Sphinx==1.4',
+'pytest-runner'
 ]
 
 test_requirements = [
     # TODO: put package test requirements here
+    'pytest==3.2.3'
 ]
 
 setup(
