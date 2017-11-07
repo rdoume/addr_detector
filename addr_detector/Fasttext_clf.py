@@ -11,25 +11,26 @@ from pyfasttext import FastText
 import pkg_resources
 
 
+def is_addr(fasttext_output):
+    return fasttext_output == ['1']
+
+
 class Fasttext_clf(BaseEstimator, ClassifierMixin):
     data_path = pkg_resources.resource_filename('addr_detector.model', 'ft_ad.ftz')
+
     def __init__(self, path=data_path):
         self.model = FastText(path)
-        self.default = '0'
 
     def fit(self, X, y):
         return self
 
     def predict(self, X):
-        results = []
         if isinstance(X, str):  #
-            res=self.model.predict_single(X)
-            results = results + [self.default if not res  else res]
+            res = self.model.predict_single(X)
+            return [is_addr(res)]
         elif isinstance(X, list):
-           # X=[(x) for x in X]
-            res = self.model.predict(X)
-            results = results + self.model.predict(X)
-        return results
+            # X=[(x) for x in X]
+            return list(map(is_addr, self.model.predict(X)))
 
     def predict_proba(self, X):
         results = []
