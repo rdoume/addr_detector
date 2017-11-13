@@ -15,9 +15,14 @@ requirements = [
     # TODO: put package requirements here
     'Cython',
     'numpy',
+    'scipy',
     'postal==1.0',
     'scikit_learn==0.19',
-    'fasttext'
+    'fastTextpy==0.0.1'
+]
+
+depedencies = [
+    'git+https://github.com/facebookresearch/fastText/archive/c5cb6b2d0e295e58cfa827e38d2e9b1e0cbe09e4.zip#egg=fastText-0.0.1&subdirectory=python'
 ]
 
 setup_requirements = [
@@ -65,4 +70,5 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     setup_requires=setup_requirements,
+    dependency_links=depedencies
 )
