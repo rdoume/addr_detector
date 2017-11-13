@@ -17,8 +17,7 @@ requirements = [
     'numpy',
     'postal==1.0',
     'scikit_learn==0.19',
-    'pyfasttext'
-
+    'fasttext'
 ]
 
 setup_requirements = [

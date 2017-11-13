@@ -19,26 +19,16 @@ def fasttext():
 
 
 def test_good_addr_fasttext(fasttext):
-    assert fasttext.predict('7 rue spontini paris') == [True]
+    assert fasttext.predict('7 rue spontini paris')
 
 
 def test_bad_addr_fasttext(fasttext):
-    assert fasttext.predict('Comment se faire cuire un oeuf') == [False]
-
-
-def test_batch_fasttext(fasttext):
-    r = fasttext.predict(['7 rue spontini paris', 'Comment se faire cuire un oeuf'])
-    assert r == [True, False]
+    assert not fasttext.predict('Comment se faire cuire un oeuf')
 
 
 def test_good_addr_postal(postal):
-    assert postal.predict('7 rue spontini paris') == [True]
+    assert postal.predict('7 rue spontini paris')
 
 
 def test_bad_addr_postal(postal):
-    assert postal.predict('Comment se faire cuire un oeuf') == [False]
-
-
-def test_batch_postal(postal):
-    r = postal.predict(['7 rue spontini paris', 'Comment se faire cuire un oeuf'])
-    assert r == [True, False]
+    assert not postal.predict('Comment se faire cuire un oeuf')
