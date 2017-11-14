@@ -26,15 +26,7 @@ class Postal_clf(BaseEstimator, ClassifierMixin):
         return self
 
     def predict(self, X):
-        results = []
-        if isinstance(X, str):  #
-            return [self.is_addr(X)]
-        elif isinstance(X, list):
-            for elt in X:
-                if isinstance(elt, str):
-                    results.append(self.is_addr(elt))
-
-        return results
+        return self.is_addr(X)
 
     def is_addr(self, X):
         full_road = False

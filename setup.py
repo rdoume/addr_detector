@@ -4,6 +4,8 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+from setuptools.command.install import install
+import subprocess
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -15,23 +17,22 @@ requirements = [
     # TODO: put package requirements here
     'Cython',
     'numpy',
+    'scipy',
     'postal==1.0',
     'scikit_learn==0.19',
-    'pyfasttext'
-
 ]
 
 setup_requirements = [
     # TODO(rdoume): put setup requirements (distutils extensions, etc.) here
-'bumpversion==0.5',
-'wheel==0.29',
-'watchdog==0.8',
-'flake8==2.6',
-'Cython',
-'tox==2.3',
-'coverage==4.1',
-'Sphinx==1.4',
-'pytest-runner'
+    'bumpversion==0.5',
+    'wheel==0.29',
+    'watchdog==0.8',
+    'flake8==2.6',
+    'Cython',
+    'tox==2.3',
+    'coverage==4.1',
+    'Sphinx==1.4',
+    'pytest-runner'
 ]
 
 test_requirements = [
@@ -39,7 +40,23 @@ test_requirements = [
     'pytest==3.2.3'
 ]
 
+class CustomGitDependenciesInstallCommand(install):
+    """
+    setuptool does not seems to be able to install git dependencies (with dependency_links)
+    so we use a pip install by hand
+    """
+
+    def run(self):
+        c = ['pip',
+             'install',
+             'scipy', # numpy and scipy does not seems to be installed too
+             'numpy',
+             'git+git://github.com/facebookresearch/fastText.git@c5cb6b2d0e295e58cfa827e38d2e9b1e0cbe09e4#egg=fastTextpy&subdirectory=python']
+        subprocess.check_call(c)
+        install.run(self)
+
 setup(
+    cmdclass={'install': CustomGitDependenciesInstallCommand},
     name='addr_detector',
     version='0.1.0',
     description="Python address detector ",
@@ -65,5 +82,5 @@ setup(
     ],
     test_suite='tests',
     tests_require=test_requirements,
-    setup_requires=setup_requirements,
+    setup_requires=setup_requirements
 )

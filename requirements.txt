@@ -1,5 +1,8 @@
 Cython
 numpy
+scipy
 postal==1.0
 scikit_learn==0.19.0
-pyfasttext
+# Note: we fix the commit of fasttext on the last commit to have been tested, but this can  (and should) be updated
+git+git://github.com/facebookresearch/fastText.git@c5cb6b2d0e295e58cfa827e38d2e9b1e0cbe09e4#egg=fastTextpy&subdirectory=python
+
