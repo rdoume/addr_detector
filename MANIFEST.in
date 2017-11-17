@@ -3,7 +3,6 @@ include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include README.rst
-include addr_detector/model/ft_ad.ftz
 include addr_detector/model/ft_ad.bin
 recursive-include tests *
 recursive-exclude * __pycache__

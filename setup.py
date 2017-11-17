@@ -45,7 +45,7 @@ test_requirements = [
 
 setup(
     name='addr_detector',
-    version='0.2.0',
+    version='0.2.1',
     description="Python address detector ",
     long_description=readme + '\n\n' + history,
     author="Qwant",
@@ -53,8 +53,8 @@ setup(
     url='https://github.com/rdoume/addr_detector',
     packages=find_packages(),
     include_package_data=True,
-    package_data={'': ['*.ftz']},
-    data_files=[('addr_detector.model', ['addr_detector/model/ft_ad.ftz'])],
+    package_data={'': ['*.bin']},
+    data_files=[('addr_detector.model', ['addr_detector/model/ft_ad.bin'])],
     install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,
