@@ -55,7 +55,7 @@ The previous step must have been installed before.
 Package is on the Pipy :
 pip install addr_detector
 
-Or directly after forking this one
+Or directly after forking this one, run `pip install -r requirements.txt`
 
 ## Examples:
 

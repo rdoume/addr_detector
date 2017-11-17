@@ -13,6 +13,9 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
+# Note: there is an additional requirements that does not seems to be handled by setuptools:
+# git+git://github.com/facebookresearch/fastText.git@c5cb6b2d0e295e58cfa827e38d2e9b1e0cbe09e4#egg=fastTextpy&subdirectory=python
+
 requirements = [
     # TODO: put package requirements here
     'Cython',
@@ -40,23 +43,7 @@ test_requirements = [
     'pytest==3.2.3'
 ]
 
-class CustomGitDependenciesInstallCommand(install):
-    """
-    setuptool does not seems to be able to install git dependencies (with dependency_links)
-    so we use a pip install by hand
-    """
-
-    def run(self):
-        c = ['pip',
-             'install',
-             'scipy', # numpy and scipy does not seems to be installed too
-             'numpy',
-             'git+git://github.com/facebookresearch/fastText.git@c5cb6b2d0e295e58cfa827e38d2e9b1e0cbe09e4#egg=fastTextpy&subdirectory=python']
-        subprocess.check_call(c)
-        install.run(self)
-
 setup(
-    cmdclass={'install': CustomGitDependenciesInstallCommand},
     name='addr_detector',
     version='0.1.0',
     description="Python address detector ",
