@@ -58,7 +58,7 @@ class CustomGitDependenciesInstallCommand(install):
 setup(
     cmdclass={'install': CustomGitDependenciesInstallCommand},
     name='addr_detector',
-    version='0.1.0',
+    version='0.2.0',
     description="Python address detector ",
     long_description=readme + '\n\n' + history,
     author="Qwant",
@@ -67,7 +67,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={'': ['*.ftz']},
-    data_files=[('model', ['addr_detector/model/ft_ad.ftz'])],
+    data_files=[('addr_detector.model', ['addr_detector/model/ft_ad.ftz'])],
     install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,
@@ -78,6 +78,7 @@ setup(
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.5',
 
     ],
     test_suite='tests',
