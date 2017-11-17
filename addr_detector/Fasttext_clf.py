@@ -23,7 +23,7 @@ def is_addr(fasttext_output):
 
 
 class Fasttext_clf(BaseEstimator, ClassifierMixin):
-    data_path = pkg_resources.resource_filename('addr_detector.model', 'ft_ad.ftz')
+    data_path = pkg_resources.resource_filename('addr_detector.model', 'ft_ad.bin')
 
     def __init__(self, path=data_path):
         self.model = load_model(path)
