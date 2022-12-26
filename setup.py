@@ -28,7 +28,7 @@ requirements = [
 setup_requirements = [
     # TODO(rdoume): put setup requirements (distutils extensions, etc.) here
     'bumpversion==0.5',
-    'wheel==0.29',
+    'wheel==0.38.1',
     'watchdog==0.8',
     'flake8==2.6',
     'Cython',
